@@ -38,6 +38,3 @@ fi
 
 cp -r ./Configs/* "$HOME/.config"
 
-echo "if [ -z '$DISPLAY' ] && [ '$XDG_VTNR' == 1 ]; then" >> "$HOME/.bash_profile"
-echo "exec Hyprland" >> "$HOME/.bash_profile"
-echo "fi" >> "$HOME/.bash_profile"
