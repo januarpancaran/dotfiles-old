@@ -36,5 +36,21 @@ if [ ! -d "$HOME/.config" ]; then
         mkdir -p "$HOME/.config"
 fi
 
-cp -r ./Configs/* "$HOME/.config"
+SRC="./Configs/"
+DESTINATION="$HOME/.config"
 
+for folder in "$SRC"*; do
+        base_folder=$(basename "$folder")
+        destination_folder="$DESTINATION/$base_folder"
+
+        for item in "$folder"*; do
+                item_name=$(basename "$item")
+                destination_item="$destination_folder/$item_name"
+
+                if [ -f "$destination_item" ]; then
+                        mv "$destination_item" "$destination_item.bak"
+                fi
+
+                cp -r "$item" "$destination_folder"
+        done
+done
