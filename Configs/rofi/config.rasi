@@ -1,15 +1,11 @@
 @theme "/dev/null"
 
 * {
-  bg: #11121D;
-  bg-alt: #444b6a;
-
-  fg: #FFFFFF;
-  fg-alt: #787c99;
+  bg: #282828;
+  bg-alt: #ebdbb2;
 
   background-color: @bg;
 
-  border: 0;
   margin: 0;
   padding: 0;
   spacing: 0;
@@ -27,15 +23,17 @@ configuration {
 
 window {
   width: 45%;
+  border-radius: 12px;
 }
 
 element {
   padding: 12;
-  text-color: @fg-alt;
+  text-color: @bg-alt;
 }
 
 element selected {
-  text-color: @fg;
+  background-color: @bg-alt;
+  text-color: @bg;
 }
 
 element-text {
@@ -52,13 +50,13 @@ prompt {
   background-color: @bg-alt;
   enabled: true;
   padding: 12 0 0 12;
-  text-color: @fg;
+  text-color: @bg;
 }
 
 entry {
   background-color: @bg-alt;
   padding: 12;
-  text-color: @fg;
+  text-color: @bg;
 }
 
 inputbar {
