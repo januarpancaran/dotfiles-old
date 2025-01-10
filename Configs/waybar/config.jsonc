@@ -40,7 +40,10 @@
     "format": "{class}",
     "separate-outputs": false,
     "icon": true,
-    "icon-size": 20
+    "icon-size": 20,
+	"rewrite": {
+		"": " hyprland"
+	}
   },
   
   "mpris": {
@@ -64,8 +67,8 @@
   // Right modules
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon}󰂰 {format_source}",
+    "format-bluetooth-muted": " {icon}󰂲 {format_source}",
     "format-muted": " {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
@@ -76,20 +79,24 @@
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["", "", ""]
+        "default": [ " " ]
     },
     "on-click": "pavucontrol",
-    "min-length": 13
+    "min-length": 13,
+	"max-volume": 200
   },
 
   "bluetooth": {
-    "format": "{icon}",
-    "format-icons": [ "" ],
+    "format": "󰂰",
+	"format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-connected-battery": "󰂱",
     "tooltip-format": "bluetooth: {status}",
-    "format-connected": "{device_alias}",
-    "format-connected-battery": "{device_alias}: {device_battery_percentage}%",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+	"tooltip-format-disabled": "Bluetooth Disabled",
+	"tooltip-format-connected": "{device_alias}",
+	"tooltip-format-connected-battery": "{device_alias}: {device_battery_percentage}%",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%",
     "on-click": "blueberry",
     "min-length": 2
   },

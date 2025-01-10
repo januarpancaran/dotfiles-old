@@ -9,10 +9,6 @@ window#waybar {
   background: transparent;
 }
 
-window#waybar.empty #window {
-  background-color: transparent;
-}
-
 #workspaces {
   margin-right: 8px;
   border-radius: 10px;
