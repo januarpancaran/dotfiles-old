@@ -11,21 +11,24 @@ window#waybar {
 
 #workspaces {
   margin-right: 8px;
-  border-radius: 10px;
+  border-radius: 15px;
   transition: none;
-  background: #383c4a;
+  color: #ebdbb2;
+  background: #282828;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ebdbb2;
 }
 
 #workspaces button {
   transition: none;
-  color: #7c818c;
+  color: #ebdbb2;
   background: transparent;
-  /* padding: 5px; */
   font-size: 12px;
 }
 
 #workspaces button.persistent {
-  color: #7c818c;
+  color: #ebdbb2;
   font-size: 12px;
 }
 
@@ -34,21 +37,21 @@ window#waybar {
   box-shadow: inherit;
   text-shadow: inherit;
   border-radius: inherit;
-  color: #383c4a;
-  background: #7c818c;
+  color: #282828;
+  background: #ebdbb2;
 }
 
 #workspaces button.active {
-  color: #7c818c;
-  background-color: #ffffff;
+  color: #282828;
+  background-color: #ebdbb2;
   margin-right: 8px;
   border-radius: 10px;
   transition: none;
 }
 
 #workspaces button.urgent {
-  background-color: #f53c3c;
-  color: #ffffff;
+  background-color: #ebdbb2;
+  color: #282828;
   margin-right: 8px;
   border-radius: 10px;
   transition: none;
@@ -59,8 +62,11 @@ window#waybar {
   padding-right: 16px;
   border-radius: 10px;
   transition: none;
-  color: #ffffff;
-  background: #383c4a;
+  color: #ebdbb2;
+  background: #282828;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ebdbb2;
 }
 
 #window, #mpris, #pulseaudio, #bluetooth, #network, #backlight, #battery, #custom-notification, #tray {
@@ -69,8 +75,11 @@ window#waybar {
   padding-right: 16px;
   border-radius: 10px;
   transition: none;
-  color: #ffffff;
-  background: #383c4a;
+  color: #ebdbb2;
+  background: #282828;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ebdbb2;
 }
 
 #custom-power {
@@ -79,23 +88,26 @@ window#waybar {
   padding-right: 16px;
   border-radius: 10px;
   transition: none;
-  color: #ffffff;
-  background: #f53c3c;
+  color: #282828;
+  background: #ebdbb2;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #282828;
 }
 
 #battery.charging {
-  color: #ffffff;
-  background-color: #26A65B;
+  color: #282828;
+  background-color: #ebdbb2;
 }
 
 #battery.warning:not(.charging) {
-  background-color: #ffbe61;
-  color: black;
+  background-color: #ebdbb2;
+  color: #282828;
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
+  background-color: #ebdbb2;
+  color: #282828;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
