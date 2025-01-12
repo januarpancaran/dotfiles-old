@@ -5,7 +5,7 @@
   "spacing": 4,
   "modules-left": [ "custom/power", "hyprland/workspaces", "hyprland/window", "mpris" ],
   "modules-center": [ "clock" ],
-  "modules-right": [ "pulseaudio", "bluetooth", "network", "backlight", "battery", "custom/notification", "tray" ],
+  "modules-right": [ "pulseaudio", "bluetooth", "network", "backlight", "battery", "tray" ],
 
   // Left modules
   "custom/power": {
@@ -73,9 +73,9 @@
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
+        "headphone": "󰋋",
+        "hands-free": "󰋋",
+        "headset": "󰋎",
         "phone": "",
         "portable": "",
         "car": "",
@@ -102,19 +102,18 @@
   },
 
   "network": {
-    "format-wifi": "",
-    "format-ethernet": "",
+    "format-wifi": "{essid} ",
+    "format-ethernet": "󰈀",
     "tooltip-format": "{essid}",
-    "format-linked": "{ifname} (No IP) ",
+    "format-linked": "{ifname} (No IP) 󰈀",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "nm-connection-editor",
     "min-length": 2
   },
 
   "backlight": {
-    "format": "{percent}% {icon}",
-    "format-icons": [ "", "", "", "", "", "", "", "", "" ],
-    "min-length": 5
+    "format": "{icon}",
+    "format-icons": [ "", "", "", "", "", "", "", "", "" ]
   },
 
   "battery": {
@@ -124,31 +123,10 @@
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% 󰂄",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""]
-  },
-
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
   },
 
   "tray": {
