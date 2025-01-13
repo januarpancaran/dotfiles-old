@@ -19,7 +19,7 @@ else
 fi
 
 echo "Installing Packages..."
-$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar swaync hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog network-manager-applet unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep --needed pavucontrol --noconfirm
+$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar dunst hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog network-manager-applet unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep pavucontrol acpi --needed --noconfirm
 
 echo "Installing Fonts..."
 $AUR_HELPER -S ttf-meslo-nerd ttf-jetbrains-mono-nerd ttf-space-mono-nerd otf-font-awesome ttf-material-symbols-variable-git noto-fonts-emoji noto-fonts-cjk terminus-font --noconfirm 
@@ -36,12 +36,12 @@ if [ ! -d "$HOME/.config" ]; then
         mkdir -p "$HOME/.config"
 fi
 
-SRC="./Configs/"
-DESTINATION="$HOME/.config"
+CONFIG_SRC="./Configs/"
+CONFIG_DES="$HOME/.config"
 
-for folder in "$SRC"*; do
+for folder in "$CONFIG_SRC"*; do
         base_folder=$(basename "$folder")
-        destination_folder="$DESTINATION/$base_folder"
+        destination_folder="$CONFIG_DES/$base_folder"
 
         for item in "$folder"*; do
                 item_name=$(basename "$item")
@@ -54,6 +54,15 @@ for folder in "$SRC"*; do
                 cp -r "$item" "$destination_folder"
         done
 done
+
+LOCAL_BIN_SRC="./.local/bin"
+LOCAL_BIN_DES="$HOME/.local/bin"
+
+if [ ! -d "$LOCAL_BIN_DES" ]; then
+	mkdir -p "$(dirname $LOCAL_BIN_DES)"
+fi
+
+cp -r "$LOCAL_BIN_SRC" "$LOCAL_BIN_DES"
 
 GRUVBOX_DIR="/usr/share/themes/Gruvbox-Dark"
 if [ -d "$GRUVBOX_DIR" ]; then
