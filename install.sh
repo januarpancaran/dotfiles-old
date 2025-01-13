@@ -19,7 +19,7 @@ else
 fi
 
 echo "Installing Packages..."
-$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar dunst hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog network-manager-applet unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep pavucontrol acpi neovim firefox mpv --needed --noconfirm
+$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar dunst hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog network-manager-applet unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep pavucontrol acpi neovim firefox mpv zsh starship --needed --noconfirm
 
 echo "Installing Fonts..."
 $AUR_HELPER -S ttf-meslo-nerd ttf-jetbrains-mono-nerd ttf-space-mono-nerd otf-font-awesome ttf-material-symbols-variable-git noto-fonts-emoji noto-fonts-cjk terminus-font --noconfirm 
@@ -60,6 +60,22 @@ if [ ! -d "$LOCAL_BIN_DES" ]; then
 fi
 
 cp -r "$LOCAL_BIN_SRC" "$LOCAL_BIN_DES"
+
+cp ./.zshrc "$HOME"
+
+echo "Changing Default Shell to zsh..."
+echo "Change Shell? [y/N]"
+read -r confirmation
+
+if [[ "$confirmation" =~ ^[Yy]$ ]]; then
+	if chsh -s "$(which zsh)"; then
+		echo "Default shell changed successfully."
+	else
+		echo "Failed to change default shell."
+	fi
+else
+	echo "Default shell not changed."
+fi
 
 GRUVBOX_DIR="/usr/share/themes/Gruvbox-Dark"
 if [ -d "$GRUVBOX_DIR" ]; then
