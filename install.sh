@@ -19,10 +19,10 @@ else
 fi
 
 echo "Installing Packages..."
-$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar dunst hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog network-manager-applet unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep pavucontrol acpi neovim firefox mpv zsh starship --needed --noconfirm
+$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar dunst hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep pavucontrol acpi neovim firefox mpv zsh starship --needed --noconfirm
 
 echo "Installing Fonts..."
-$AUR_HELPER -S ttf-meslo-nerd ttf-jetbrains-mono-nerd ttf-space-mono-nerd otf-font-awesome ttf-material-symbols-variable-git noto-fonts-emoji noto-fonts-cjk terminus-font --noconfirm 
+$AUR_HELPER -S ttf-meslo-nerd ttf-jetbrains-mono-nerd ttf-space-mono-nerd otf-font-awesome ttf-material-symbols-variable-git noto-fonts-emoji noto-fonts-cjk --noconfirm 
 
 # Enabling Services
 sudo systemctl enable --now NetworkManager bluetooth cronie
@@ -30,26 +30,21 @@ systemctl enable --user --now pipewire.socket pipewire.service
 
 # Moving all the dotfiles
 if [ ! -d "$HOME/.config" ]; then
-        mkdir -p "$HOME/.config"
+	mkdir -p "$(dirname $HOME/.config)"
 fi
 
 CONFIG_SRC="./Configs/"
-CONFIG_DES="$HOME/.config"
+CONFIG_DES="$HOME/.config/"
 
-for folder in "$CONFIG_SRC"*; do
-        base_folder=$(basename "$folder")
-        destination_folder="$CONFIG_DES/$base_folder"
+for dirs in "$CONFIG_SRC"*; do
+	base_dirs=$(basename dirs)
+	des_dirs="$CONFIG_DES/$base_dirs"
 
-        for item in "$folder"*; do
-                item_name=$(basename "$item")
-                destination_item="$destination_folder/$item_name"
+	if [ -d "$des_dirs" ]; then
+		mv "$des_dirs" "${des_dirs}-old"
+	fi
 
-                if [ -f "$destination_item" ]; then
-                        mv "$destination_item" "$destination_item.bak"
-                fi
-
-                cp -r "$item" "$destination_folder"
-        done
+	cp -r "$dirs" "$des_dirs"
 done
 
 LOCAL_BIN_SRC="./.local/bin"
