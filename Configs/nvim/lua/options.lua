@@ -19,3 +19,8 @@ vim.o.mouse = 'a'
 
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>pp', vim.cmd.Ex)
+
+-- Markdown Preview
+vim.keymap.set('n', '<C-s>', vim.cmd.MarkdownPreview)
+vim.keymap.set('n', '<M-s>', vim.cmd.MarkdownPreviewStop)
+vim.keymap.set('n', '<C-p>', vim.cmd.MarkdownPreviewToggle)
