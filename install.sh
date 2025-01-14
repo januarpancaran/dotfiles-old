@@ -54,7 +54,7 @@ if [ ! -d "$LOCAL_BIN_DES" ]; then
 	mkdir -p "$(dirname $LOCAL_BIN_DES)"
 fi
 
-cp -r "$LOCAL_BIN_SRC" "$LOCAL_BIN_DES"
+cp -r "$LOCAL_BIN_SRC/*" "$LOCAL_BIN_DES"
 
 cp ./.zshrc "$HOME"
 
