@@ -19,7 +19,7 @@ else
 fi
 
 echo "Installing Packages..."
-$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar dunst hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep pavucontrol acpi neovim firefox mpv zsh starship nodejs --needed --noconfirm
+$AUR_HELPER -S base-devel bluez bluez-utils networkmanager hyprland foot polkit-gnome brightnessctl pipewire wireplumber waybar dunst hypridle hyprlock rofi-wayland swww wlogout qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xwaylandvideobridge grim slurp wl-clipboard htop trash-cli alsa-utils alsa-firmware pipewire-pulse pipewire-alsa blueberry xorg-xhost bat fastfetch eog unzip unrar wget openssh xdg-desktop-portal libnotify zoxide playerctl gruvbox-gtk-theme-git gruvbox-plus-icon-theme-git fzf ripgrep pavucontrol acpi neovim firefox mpv zsh starship nodejs cronie --needed --noconfirm
 
 echo "Installing Fonts..."
 $AUR_HELPER -S ttf-meslo-nerd ttf-jetbrains-mono-nerd ttf-space-mono-nerd otf-font-awesome ttf-material-symbols-variable-git noto-fonts-emoji noto-fonts-cjk --noconfirm 
@@ -47,12 +47,16 @@ for dirs in "$CONFIG_SRC"*; do
 	cp -r "$dirs" "$des_dirs"
 done
 
-LOCAL_BIN_SRC="./.local/bin"
-LOCAL_BIN_DES="$HOME/.local/bin"
+LOCAL_BIN_SRC="./.local/bin/"
+LOCAL_BIN_DES="$HOME/.local/bin/"
 
 if [ ! -d "$LOCAL_BIN_DES" ]; then
-	mkdir -p "$(dirname $LOCAL_BIN_DES)"
+	mkdir -p "$LOCAL_BIN_DES"
 fi
+
+for files in "$LOCAL_BIN_SRC"*; do
+	cp "$files" "$LOCAL_BIN_DES"
+done
 
 cp -r "$LOCAL_BIN_SRC/*" "$LOCAL_BIN_DES"
 
@@ -75,9 +79,9 @@ fi
 GRUVBOX_DIR="/usr/share/themes/Gruvbox-Dark"
 if [ -d "$GRUVBOX_DIR" ]; then
 	mkdir -p "$HOME/.config/gtk-4.0"
-	ln -s "$GRUVBOX_DIR/gtk-4.0/assets" "$HOME/gtk-4.0/assets"
-	ln -s "$GRUVBOX_DIR/gtk-4.0/gtk.css" "$HOME/gtk-4.0/gtk.css"
-	ln -s "$GRUVBOX_DIR/gtk-4.0/gtk-dark.css" "$HOME/gtk-4.0/gtk-dark.css"
+	ln -s "$GRUVBOX_DIR/gtk-4.0/assets" "$HOME/.config/gtk-4.0/assets"
+	ln -s "$GRUVBOX_DIR/gtk-4.0/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
+	ln -s "$GRUVBOX_DIR/gtk-4.0/gtk-dark.css" "$HOME/.config/gtk-4.0/gtk-dark.css"
 else
 	echo "Gruvbox theme not installed in your system"
 fi
