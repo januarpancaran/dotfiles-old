@@ -58,8 +58,6 @@ for files in "$LOCAL_BIN_SRC"*; do
 	cp "$files" "$LOCAL_BIN_DES"
 done
 
-cp -r "$LOCAL_BIN_SRC"* "$LOCAL_BIN_DES"
-
 cp ./.zshrc "$HOME"
 
 echo "Changing Default Shell to zsh..."
