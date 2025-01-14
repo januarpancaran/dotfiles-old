@@ -34,4 +34,9 @@ ACTION=="change", SUBSYSTEM=="power_supply", ATTRS{type}=="Mains", ATTRS{online}
 ACTION=="change", SUBSYSTEM=="power_supply", ATTRS{type}=="Mains", ATTRS{online}=="0", ENV{WAYLAND_DISPLAY}="wayland-0", ENV{DBUS_SESSION_BUS_ADDRESS}="unix:path=/run/user/1000/bus" RUN+="/usr/bin/su {your-username} -c '/home/{your-username}/.local/bin/chargingnotify 0'"
 ```
 
+Then run this command
+```bash
+sudo udevadm control --reload
+```
+
 You might want to read more info regarding this [here](https://wiki.archlinux.org/title/Udev#Triggering_desktop_notifications_from_a_udev_rule).
