@@ -74,7 +74,7 @@ fi
 
 GRUVBOX_DIR="/usr/share/themes/Gruvbox-Dark"
 if [ -d "$GRUVBOX_DIR" ]; then
-	mkdir -p "$HOME/gtk-4.0"
+	mkdir -p "$HOME/.config/gtk-4.0"
 	ln -s "$GRUVBOX_DIR/gtk-4.0/assets" "$HOME/gtk-4.0/assets"
 	ln -s "$GRUVBOX_DIR/gtk-4.0/gtk.css" "$HOME/gtk-4.0/gtk.css"
 	ln -s "$GRUVBOX_DIR/gtk-4.0/gtk-dark.css" "$HOME/gtk-4.0/gtk-dark.css"
