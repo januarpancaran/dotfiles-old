@@ -107,7 +107,7 @@
     "tooltip-format": "{essid}",
     "format-linked": "{ifname} (No IP) 󰈀",
     "format-disconnected": "Disconnected ⚠",
-    "on-click": "foot -e nmtui",
+    "on-click": "kitty -e nmtui",
     "min-length": 2
   },
 
