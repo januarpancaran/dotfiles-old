@@ -30,18 +30,18 @@ systemctl enable --user --now pipewire.socket pipewire.service
 
 # Moving all the dotfiles
 if [ ! -d "$HOME/.config" ]; then
-	mkdir -p "$(dirname $HOME/.config)"
+	mkdir -p "$(dirname '$HOME/.config')"
 fi
 
 CONFIG_SRC="./Configs/"
 CONFIG_DES="$HOME/.config/"
 
 for dirs in "$CONFIG_SRC"*; do
-	base_dirs=$(basename dirs)
+	base_dirs=$(basename "$dirs")
 	des_dirs="$CONFIG_DES/$base_dirs"
 
 	if [ -d "$des_dirs" ]; then
-		mv "$des_dirs" "${des_dirs}-old"
+		mv -v "$des_dirs" "${des_dirs}-old"
 	fi
 
 	cp -r "$dirs" "$des_dirs"
