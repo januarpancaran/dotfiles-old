@@ -66,6 +66,7 @@ alias svim='sudo nvim'
 alias nfzf='nvim $(fzf -m --preview="bat --color=always {}")'
 alias cat='bat'
 alias grep='grep --color=yes'
+alias rm='trash-put'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -74,7 +75,7 @@ alias ....='cd ../../..'
 source <(fzf --zsh)
 
 # Zoxide
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 # Starship
 eval "$(starship init zsh)"
