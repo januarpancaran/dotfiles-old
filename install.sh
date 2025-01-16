@@ -51,7 +51,7 @@ LOCAL_BIN_SRC="./.local/bin/"
 LOCAL_BIN_DES="$HOME/.local/bin/"
 
 if [ ! -d "$LOCAL_BIN_DES" ]; then
-	mkdir -p "$$LOCAL_BIN_DES"
+	mkdir -p "$LOCAL_BIN_DES"
 fi
 
 for files in "$LOCAL_BIN_SRC"*; do
