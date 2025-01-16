@@ -30,7 +30,7 @@ systemctl enable --user --now pipewire.socket pipewire.service
 
 # Moving all the dotfiles
 if [ ! -d "$HOME/.config" ]; then
-	mkdir -p "$(dirname '$HOME/.config')"
+	mkdir -p "$(dirname $HOME/.config)"
 fi
 
 CONFIG_SRC="./Configs/"
@@ -51,7 +51,7 @@ LOCAL_BIN_SRC="./.local/bin/"
 LOCAL_BIN_DES="$HOME/.local/bin/"
 
 if [ ! -d "$LOCAL_BIN_DES" ]; then
-	mkdir -p "$(dirname '$LOCAL_BIN_DES')"
+	mkdir -p "$$LOCAL_BIN_DES"
 fi
 
 for files in "$LOCAL_BIN_SRC"*; do
