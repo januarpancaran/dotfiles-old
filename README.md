@@ -8,7 +8,7 @@ My hyprland configurations with waybar, rofi, dunst, and more!
 
 You don't need to back up your existing config files since this script will backup yours first. Currently for Arch-based Distros only
 ```bash
-git clone --depth 1 https://github.com/januarpancaran/dotfiles.git
+git clone --depth 1 https://github.com/januarpancaran/dotfiles-old.git
 cd dotfiles
 ./install.sh
 ```
